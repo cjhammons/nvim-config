@@ -1,4 +1,3 @@
-cat init.vim
 :set number
 
 :set autoindent
@@ -196,6 +195,26 @@ lspconfig.pyright.setup({
       }
     }
   }
+})
+
+-- SQL language server
+lspconfig.sqlls.setup({
+  capabilities = capabilities,
+})
+
+-- Markdown language server
+lspconfig.marksman.setup({
+  capabilities = capabilities,
+})
+
+-- Bash language server
+lspconfig.bashls.setup({
+  capabilities = capabilities,
+})
+
+-- YAML language server
+lspconfig.yamlls.setup({
+  capabilities = capabilities,
 })
 
 -- Go.nvim setup
