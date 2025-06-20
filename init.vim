@@ -184,6 +184,12 @@ lspconfig.gopls.setup({
   },
 })
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*.go",
+	callback = function()
+		vim.lsp.buf.format({ timeout_ms = 2000 })
+	end,
+})
 -- Python language server (pyright)
 lspconfig.pyright.setup({
   capabilities = capabilities,
