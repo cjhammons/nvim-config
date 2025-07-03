@@ -7,6 +7,8 @@
 :set softtabstop=4
 :set mouse=a
 
+let mapleader = " "
+
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -56,6 +58,8 @@ Plug 'scottmckendry/cyberdream.nvim'
 Plug 'folke/tokyonight.nvim'
 Plug 'supermaven-inc/supermaven-nvim'
 
+Plug  'nvim-lua/plenary.nvim'
+Plug  'nvim-telescope/telescope.nvim'
 call plug#end()
 
 " Enable 256 color support
@@ -92,6 +96,12 @@ nnoremap <C-f> :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
+
+" telescope mappings
+nnoremap <leader>ff :Telescope find_files<CR>
+nnoremap <leader>fg :Telescope live_grep<CR>
+nnoremap <leader>fb :Telescope buffers<CR>
+nnoremap <leader>fh :Telescope help_tags<CR>
 
 nmap <F8> :TagbarToggle<CR>
 
