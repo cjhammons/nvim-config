@@ -56,6 +56,9 @@ Plug 'kdheepak/lazygit.nvim'
 Plug 'TroyFletcher/vim-colors-synthwave'
 Plug 'scottmckendry/cyberdream.nvim'
 Plug 'folke/tokyonight.nvim'
+
+" Supermaven is being really annoying
+" Remember to uncomment function below to re-enable
 Plug 'supermaven-inc/supermaven-nvim'
 
 Plug  'nvim-lua/plenary.nvim'
@@ -195,10 +198,10 @@ lspconfig.gopls.setup({
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*.go",
-	callback = function()
-		vim.lsp.buf.format({ timeout_ms = 2000 })
-	end,
+        pattern = "*.go",
+        callback = function()
+                vim.lsp.buf.format({ timeout_ms = 2000 })
+        end,
 })
 -- Python language server (pyright)
 lspconfig.pyright.setup({
