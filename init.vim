@@ -101,7 +101,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
 
 " telescope mappings
-nnoremap <leader>ff :Telescope find_files<CR>
+nnoremap <leader>ff :Telescope find_files hidden=true<CR>
 nnoremap <leader>fg :Telescope live_grep<CR>
 nnoremap <leader>fb :Telescope buffers<CR>
 nnoremap <leader>fh :Telescope help_tags<CR>
@@ -293,3 +293,4 @@ EOF
 
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
+let g:NERDTreeShowHidden=1
