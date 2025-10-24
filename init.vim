@@ -47,6 +47,8 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'linux-cultist/venv-selector.nvim'
+Plug 'dense-analysis/ale'
 
 " go stuff
 Plug 'ray-x/go.nvim'
@@ -57,13 +59,16 @@ Plug 'TroyFletcher/vim-colors-synthwave'
 Plug 'scottmckendry/cyberdream.nvim'
 Plug 'folke/tokyonight.nvim'
 
+" Plug 'xemptuous/sqlua.nvim'
 " Supermaven is being really annoying
 " Remember to uncomment function below to re-enable
-Plug 'supermaven-inc/supermaven-nvim'
+" Plug 'supermaven-inc/supermaven-nvim'
 
 Plug  'nvim-lua/plenary.nvim'
 Plug  'nvim-telescope/telescope.nvim'
 call plug#end()
+
+let g:ale_linters = {'python': ['pylint']}
 
 " Enable 256 color support
 set t_Co=256
@@ -240,8 +245,17 @@ lspconfig.yamlls.setup({
 -- Go.nvim setup
 require('go').setup()
 
+-- venv-selector setup
+require('venv-selector').setup({
+  -- Your preferred options for venv-selector
+  -- For example, to automatically activate a venv if found:
+  auto_activate = true,
+  -- To show a notification when a venv is activated:
+  notification = true,
+})
+
 -- Supermaven setup
-require("supermaven-nvim").setup({})
+-- require("supermaven-nvim").setup({})
 
 -- Add supermaven to cmp sources
 cmp.setup({
