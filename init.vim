@@ -54,6 +54,9 @@ Plug 'dense-analysis/ale'
 Plug 'ray-x/go.nvim'
 Plug 'ray-x/guihua.lua'
 
+" terraform stuff
+Plug 'hashivim/vim-terraform'
+
 Plug 'kdheepak/lazygit.nvim'
 Plug 'TroyFletcher/vim-colors-synthwave'
 Plug 'scottmckendry/cyberdream.nvim'
@@ -68,7 +71,8 @@ Plug  'nvim-lua/plenary.nvim'
 Plug  'nvim-telescope/telescope.nvim'
 call plug#end()
 
-let g:ale_linters = {'python': ['pylint']}
+let g:ale_linters = {'python': ['pylint'], 'terraform': ['tflint']}
+let g:terraform_fmt_on_save = 1
 
 " Enable 256 color support
 set t_Co=256
