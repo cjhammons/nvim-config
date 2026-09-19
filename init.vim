@@ -185,11 +185,10 @@ cmp.setup({
 })
 
 -- Setup LSP servers
-local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Go language server
-lspconfig.gopls.setup({
+vim.lsp.config('gopls', {
   capabilities = capabilities,
   settings = {
     gopls = {
@@ -201,6 +200,7 @@ lspconfig.gopls.setup({
     },
   },
 })
+vim.lsp.enable('gopls')
 
 vim.api.nvim_create_autocmd("BufWritePre", {
         pattern = "*.go",
@@ -209,7 +209,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         end,
 })
 -- Python language server (pyright)
-lspconfig.pyright.setup({
+vim.lsp.config('pyright', {
   capabilities = capabilities,
   settings = {
     python = {
@@ -221,26 +221,31 @@ lspconfig.pyright.setup({
     }
   }
 })
+vim.lsp.enable('pyright')
 
 -- SQL language server
-lspconfig.sqlls.setup({
+vim.lsp.config('sqlls', {
   capabilities = capabilities,
 })
+vim.lsp.enable('sqlls')
 
 -- Markdown language server
-lspconfig.marksman.setup({
+vim.lsp.config('marksman', {
   capabilities = capabilities,
 })
+vim.lsp.enable('marksman')
 
 -- Bash language server
-lspconfig.bashls.setup({
+vim.lsp.config('bashls', {
   capabilities = capabilities,
 })
+vim.lsp.enable('bashls')
 
 -- YAML language server
-lspconfig.yamlls.setup({
+vim.lsp.config('yamlls', {
   capabilities = capabilities,
 })
+vim.lsp.enable('yamlls')
 
 -- Go.nvim setup
 require('go').setup()
